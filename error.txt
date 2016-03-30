@@ -1,0 +1,128 @@
+orangepi@OrangePI:~/mt7601/src$ make
+make -C tools
+make[1]: Entering directory '/home/orangepi/mt7601/src/tools'
+gcc -g bin2h.c -o bin2h
+make[1]: Leaving directory '/home/orangepi/mt7601/src/tools'
+/home/orangepi/mt7601/src/tools/bin2h
+cp -f os/linux/Makefile.6 /home/orangepi/mt7601/src/os/linux/Makefile
+make -C /lib/modules/3.4.39-02-lobo/build SUBDIRS=/home/orangepi/mt7601/src/os/linux modules
+make[1]: Entering directory '/home/lukas/OrangePI-Kernel/linux-3.4'
+
+  WARNING: Symbol version dump /home/lukas/OrangePI-Kernel/linux-3.4/Module.symvers
+           is missing; modules will have no dependencies and modversions.
+
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../os/linux/rt_profile.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/assoc.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/auth.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/auth_rsp.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/sync.o
+/home/orangepi/mt7601/src/os/linux/../../sta/sync.c: In function ‘PeerBeacon’:
+/home/orangepi/mt7601/src/os/linux/../../sta/sync.c:2182:12: warning: passing argument 8 of ‘StaAddMacTableEntry’ from incompatible pointer type
+            &ie_list,
+            ^
+In file included from /home/orangepi/mt7601/src/include/rt_config.h:59:0,
+                 from /home/orangepi/mt7601/src/os/linux/../../sta/sync.c:28:
+/home/orangepi/mt7601/src/include/rtmp.h:7892:9: note: expected ‘struct IE_LISTS *’ but argument is of type ‘struct BCN_IE_LIST **’
+ BOOLEAN StaAddMacTableEntry(
+         ^
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/sanity.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/rtmp_data.o
+/home/orangepi/mt7601/src/os/linux/../../sta/rtmp_data.c: In function ‘STAHandleRxDataFrame’:
+/home/orangepi/mt7601/src/os/linux/../../sta/rtmp_data.c:523:33: warning: passing argument 2 of ‘MacTableLookup’ from incompatible pointer type
+    pEntry = MacTableLookup(pAd, &pHeader->Addr2);
+                                 ^
+In file included from /home/orangepi/mt7601/src/include/rt_config.h:59:0,
+                 from /home/orangepi/mt7601/src/os/linux/../../sta/rtmp_data.c:28:
+/home/orangepi/mt7601/src/include/rtmp.h:8429:18: note: expected ‘UCHAR *’ but argument is of type ‘UCHAR (*)[6]’
+ MAC_TABLE_ENTRY *MacTableLookup(RTMP_ADAPTER *pAd, UCHAR *pAddr);
+                  ^
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/connect.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/wpa.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../sta/sta_cfg.o
+/home/orangepi/mt7601/src/os/linux/../../sta/sta_cfg.c: In function ‘RtmpIoctl_rt_ioctl_siwgenie’:
+/home/orangepi/mt7601/src/os/linux/../../sta/sta_cfg.c:7618:13: warning: assignment from incompatible pointer type
+     eid_ptr = pAd->StaCfg.pWpaAssocIe;
+             ^
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/crypt_md5.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/crypt_sha2.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/crypt_hmac.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/crypt_aes.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/crypt_arc4.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/mlme.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_wep.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/action.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_data.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/rtmp_init.o
+/home/orangepi/mt7601/src/os/linux/../../common/rtmp_init.c: In function ‘NICInitializeAsic’:
+/home/orangepi/mt7601/src/os/linux/../../common/rtmp_init.c:1656:1: warning: the frame size of 1032 bytes is larger than 1024 bytes [-Wframe-larger-than=]
+ }
+ ^
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/rtmp_init_inf.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_tkip.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_aes.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_sync.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/eeprom.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_sanity.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_info.o
+/home/orangepi/mt7601/src/os/linux/../../common/cmm_info.c: In function ‘set_rf’:
+/home/orangepi/mt7601/src/os/linux/../../common/cmm_info.c:5730:3: warning: format ‘%x’ expects argument of type ‘unsigned int *’, but argument 5 has type ‘UCHAR *’ [-Wformat=]
+   rv = sscanf(arg, "%d-%d-%x", &(bank_id), &(rf_id), &(rf_val));
+   ^
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_cfg.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_wpa.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_radar.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/spectrum.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/rtmp_timer.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/rt_channel.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_profile.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_asic.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/scan.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/cmm_cmd.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/uapsd.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/ps.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../rate_ctrl/ra_ctrl.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../rate_ctrl/alg_legacy.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../rate_ctrl/alg_ags.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../chips/rtmp_chip.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/txpower.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../mac/rtmp_mac.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../mgmt/mgmt_hw.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../mgmt/mgmt_entrytb.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../phy/rtmp_phy.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../phy/rlt_phy.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../phy/rlt_rf.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/ba_action.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../mgmt/mgmt_ht.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../common/rt_os_util.o
+  CC [M]  /home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.o
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2380:2: error: unknown field ‘private’ specified in initializer
+  .private = (iw_handler *) rt_priv_handlers,
+  ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2380:13: warning: initialization from incompatible pointer type
+  .private = (iw_handler *) rt_priv_handlers,
+             ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2380:13: warning: (near initialization for ‘rt28xx_iw_handler_def.get_wireless_stats’)
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2381:2: error: unknown field ‘num_private’ specified in initializer
+  .num_private  = N(rt_priv_handlers),
+  ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2381:2: warning: excess elements in struct initializer
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2381:2: warning: (near initialization for ‘rt28xx_iw_handler_def’)
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2382:2: error: unknown field ‘private_args’ specified in initializer
+  .private_args = (struct iw_priv_args *) privtab,
+  ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2382:26: warning: excess elements in struct initializer
+  .private_args = (struct iw_priv_args *) privtab,
+                          ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2382:26: warning: (near initialization for ‘rt28xx_iw_handler_def’)
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2383:2: error: unknown field ‘num_private_args’ specified in initializer
+  .num_private_args = N(privtab),
+  ^
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2383:2: warning: excess elements in struct initializer
+/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.c:2383:2: warning: (near initialization for ‘rt28xx_iw_handler_def’)
+scripts/Makefile.build:307: recipe for target '/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.o' failed
+make[2]: *** [/home/orangepi/mt7601/src/os/linux/../../os/linux/sta_ioctl.o] Error 1
+Makefile:1365: recipe for target '_module_/home/orangepi/mt7601/src/os/linux' failed
+make[1]: *** [_module_/home/orangepi/mt7601/src/os/linux] Error 2
+make[1]: Leaving directory '/home/lukas/OrangePI-Kernel/linux-3.4'
+Makefile:394: recipe for target 'LINUX' failed
+make: *** [LINUX] Error 2
